@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-
+// LA diferencia de la funcion con la anterior es que esta en lugar de un ciclo while usa recursividad para generar la repetición
 int buscar_param_bin_recu(int valor, int longitud, int arreglo[longitud], int inicio, int media, int final){
 
     media = (inicio + final)/2;
