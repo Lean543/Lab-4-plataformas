@@ -1,36 +1,31 @@
 #include <stdio.h>
 
-void encontrarMinMax(int *arreglo, int * minimo, int * maximo, int longitud){
+void encontrarMinMaxpunt(int *arreglo, int * minimo, int * maximo, int longitud){
 
     int i;
 
     int valor_actual;
 
-    int valor_menor = arreglo[0];
+    *maximo = arreglo[0];
 
-    int valor_mayor = arreglo[0];
+    *minimo = arreglo[0];
 
     for (i = 0; i < longitud; i += 1){
 
         valor_actual = arreglo[i];
 
-        if (valor_actual < valor_menor){
+        if (valor_actual < *minimo){
 
-            valor_menor = valor_actual;
+            *minimo = valor_actual;
 
         }
 
-        if (valor_actual > valor_mayor){
+        if (valor_actual > *maximo){
 
-            valor_mayor = valor_actual;
+            *maximo = valor_actual;
 
-
+        }
     }
-
-    printf("El menor valor en el arreglo es %d\n", valor_menor);
-
-    return 0;
-
 
 }
 
@@ -102,12 +97,20 @@ int main (){
 
     int maximo = 0;
 
-    int mínimo = 0;
+    int minimo = 0;
 
-    int * ptr = &maximo;
+    int * ptrmax = &maximo;
 
-    int * ptr = &minimo;
+    int * ptrmin = &minimo;
 
-    encontrarMinMax(*arreglo, * minimo, * maximo, int longitud);
+    encontrarMinMaxpunt(arreglo, ptrmin, ptrmax, longitud);
+
+    minimo = *ptrmin;
+    maximo = *ptrmax;
+
+    printf("Para punteros:\n");
+
+    printf("El menor valor en el arreglo es %d\n", minimo);
+    printf("El mayor valor en el arreglo es %d\n", maximo);
 
 }
